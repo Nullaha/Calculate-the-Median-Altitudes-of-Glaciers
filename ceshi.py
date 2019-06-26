@@ -5,7 +5,7 @@ import xlwt
 import string
 
 
-file = open("D:\\Documents\Desktop\ceshihight\pamier\pamier16_3.txt","r",encoding='UTF-8-sig')
+file = open("D:\\Documents\Desktop\ceshihight\pamier\pamier16.txt","r",encoding='UTF-8-sig')
 rows = []
 urbans = []
 # 列出txt中每一行
