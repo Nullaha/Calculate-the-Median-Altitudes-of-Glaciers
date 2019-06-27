@@ -5,7 +5,7 @@ import xlwt
 import string
 
 
-file = open("D:\\Documents\Desktop\ceshihight\pamier\pamier16.txt","r",encoding='UTF-8-sig')
+file = open("D:\\Documents\Desktop\test\test1.txt","r",encoding='UTF-8-sig')
 rows = []
 urbans = []
 # 列出txt中每一行
@@ -13,11 +13,10 @@ for r in file:
     r = r.strip('\n')
     rows.append(r)
     print(r)
-print(rows) #输出的是 txt表中 行数据。
+print(rows) # 输出的是 txt表中 行数据。
 
 
-
-# 生成 行政区 列表,并删除重复项。
+# 生成 Glaciers 列表,并删除重复项。
 for i in rows:
     i = i.strip('\n')
     ii = i.split(',')
@@ -27,7 +26,7 @@ for i in rows:
 print(urbans)
 print(len(urbans))
 
-#形成了我想要的字典嵌套
+# 形成了我想要的字典嵌套
 zidian1 ={}
 zidian0 = {}
 for i in urbans:
@@ -51,22 +50,22 @@ for i in urbans:
 
 print(zidian0)
 
-#哈哈哈计算了
+# 哈哈哈计算了
 down = {}
 for k,v in zidian0.items():
     print('名字:'+k)
-    zu = v #zu是一个字典，也就是嵌套字典的子字典。
+    zu = v # zu是一个字典，也就是嵌套字典的子字典。
     print(zu)
     n = len(zu)
-    print(n)  #表示有几个等高线
+    print(n)  # 表示有几个等高线
 
-    #python计算字典里所有值的总和
-    zulist = zu.values() #把zu字典里的vules变成了列表。
+    # python 计算字典里所有值的总和
+    zulist = zu.values() # 把zu字典里的vules变成了列表。
     sum1 = 0
     for x in zulist:
         sum1 = float(x)+sum1
     allsum = sum1/2
-    print(allsum) #求得 总面积/2。
+    print(allsum) # 求得 总面积/2。
 
     sum0 = 0
     for i,j in zu.items():
@@ -102,7 +101,7 @@ def write_to_excel(down, filename):
 
     book.save(filename)
 
-aha = "D:\\Documents\Desktop\ceshihight\pamier\pamier16_3.xls"
+aha = "D:\\Documents\Desktop\test\test1.xls"
 write_to_excel(down, aha)
 
 
