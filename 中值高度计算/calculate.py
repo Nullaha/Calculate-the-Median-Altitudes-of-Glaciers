@@ -5,22 +5,19 @@ import xlwt
 import string
 
 
-<<<<<<< HEAD
-file = open("D:\\Documents\Desktop\test\test1.txt","r",encoding='UTF-8-sig')
-=======
-file = open("D:\\Documents\Desktop\hest2\lzj\\yinduhe.csv","r",encoding='UTF-8-sig')
->>>>>>> finally commit
+file = open("D:\\Documents\Desktop\ceshihight\wanglu\Output.txt","r",encoding='UTF-8-sig') # RE
 rows = []
 urbans = []
-# åˆ—å‡ºtxtä¸­æ¯ä¸€è¡Œ
+# ÁĞ³ötxtÖĞÃ¿Ò»ĞĞ
 for r in file:
     r = r.strip('\n')
     rows.append(r)
     print(r)
-print(rows) # è¾“å‡ºçš„æ˜¯ txtè¡¨ä¸­ è¡Œæ•°æ®ã€‚
+print(rows) #Êä³öµÄÊÇ txt±íÖĞ ĞĞÊı¾İ¡£
 
 
-# ç”Ÿæˆ Glaciers åˆ—è¡¨,å¹¶åˆ é™¤é‡å¤é¡¹ã€‚
+
+# Éú³É ĞĞÕşÇø ÁĞ±í,²¢É¾³ıÖØ¸´Ïî¡£
 for i in rows:
     i = i.strip('\n')
     ii = i.split(',')
@@ -30,7 +27,7 @@ for i in rows:
 print(urbans)
 print(len(urbans))
 
-# å½¢æˆäº†æˆ‘æƒ³è¦çš„å­—å…¸åµŒå¥—
+#ĞÎ³ÉÁËÎÒÏëÒªµÄ×ÖµäÇ¶Ì×
 zidian1 ={}
 zidian0 = {}
 for i in urbans:
@@ -41,7 +38,7 @@ for i in urbans:
             zidian2[jj[3]] = jj[2]
     print(zidian2)
 
-    # å¯¹å­—å…¸æŒ‰é”®ï¼ˆkeyï¼‰è¿›è¡Œæ’åºï¼ˆé»˜è®¤ç”±å°åˆ°å¤§ï¼‰
+    # ¶Ô×Öµä°´¼ü£¨key£©½øĞĞÅÅĞò£¨Ä¬ÈÏÓÉĞ¡µ½´ó£©
     rank1_zidian2 = sorted(zidian2.keys())
     rank2_zidian2 = sorted(zidian2.items(), key=lambda x: x[0])
     rank3_zidian2 = dict(rank2_zidian2)
@@ -54,27 +51,22 @@ for i in urbans:
 
 print(zidian0)
 
-# å“ˆå“ˆå“ˆè®¡ç®—äº†
+#¹ş¹ş¹ş¼ÆËãÁË
 down = {}
 for k,v in zidian0.items():
-    print('åå­—:'+k)
-    zu = v # zuæ˜¯ä¸€ä¸ªå­—å…¸ï¼Œä¹Ÿå°±æ˜¯åµŒå¥—å­—å…¸çš„å­å­—å…¸ã€‚
+    print('Ãû×Ö:'+k)
+    zu = v #Ç¶Ì××ÖµäµÄ×Ó×Öµä¡£
     print(zu)
     n = len(zu)
-    print(n)  # è¡¨ç¤ºæœ‰å‡ ä¸ªç­‰é«˜çº¿
+    print(n)  #±íÊ¾ÓĞ¼¸¸öµÈ¸ßÏß
 
-<<<<<<< HEAD
-    # python è®¡ç®—å­—å…¸é‡Œæ‰€æœ‰å€¼çš„æ€»å’Œ
-    zulist = zu.values() # æŠŠzuå­—å…¸é‡Œçš„vuleså˜æˆäº†åˆ—è¡¨ã€‚
-=======
-    #pythonè®¡ç®—å­—å…¸é‡Œæ‰€æœ‰å€¼çš„æ€»å’Œ *8
-    zulist = zu.values() #æŠŠzuå­—å…¸é‡Œçš„vuleså˜æˆäº†åˆ—è¡¨ã€‚
->>>>>>> finally commit
+    #python¼ÆËã×ÖµäÀïËùÓĞÖµµÄ×ÜºÍ
+    zulist = zu.values() #°Ñzu×ÖµäÀïµÄvules±ä³ÉÁËÁĞ±í¡£
     sum1 = 0
     for x in zulist:
         sum1 = float(x)+sum1
     allsum = sum1/2
-    print(allsum) # æ±‚å¾— æ€»é¢ç§¯/2ã€‚
+    print(allsum) #ÇóµÃ ×ÜÃæ»ı/2¡£
 
     sum0 = 0
     for i,j in zu.items():
@@ -88,12 +80,12 @@ print(down)
 print(len(down))
 
 
-# å­—å…¸æ•°æ®å†™å…¥excel
+# ×ÖµäÊı¾İĞ´Èëexcel
 def write_to_excel(down, filename):
-    # ä¸€ä¸ªWorkbookå¯¹è±¡ï¼Œè¿™å°±ç›¸å½“äºåˆ›å»ºäº†ä¸€ä¸ªExcelæ–‡ä»¶
+    # Ò»¸öWorkbook¶ÔÏó£¬Õâ¾ÍÏàµ±ÓÚ´´½¨ÁËÒ»¸öExcelÎÄ¼ş
     book = xlwt.Workbook(encoding='utf-8', style_compression=0)
     sheet = book.add_sheet('0', cell_overwrite_ok=True)
-    # ç¬¬ä¸€è¡Œ(åˆ—æ ‡é¢˜)
+    # (ÁĞ±êÌâ)
     sheet.write(0, 0, 'name')
     sheet.write(0, 1, 'contour')
 
@@ -110,11 +102,7 @@ def write_to_excel(down, filename):
 
     book.save(filename)
 
-<<<<<<< HEAD
-aha = "D:\\Documents\Desktop\test\test1.xls"
-=======
-aha = "D:\\Documents\Desktop\hest2\lzj\out1_ydh.xls"
->>>>>>> finally commit
+aha = "D:\\Documents\Desktop\ceshihight\wanglu\Output.xls"  #RE
 write_to_excel(down, aha)
 
 
